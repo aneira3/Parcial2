@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">#</th>
+          <th class="h4">Nombre</th>
+          <th class="h4">Plataforma</th>
+          <th class="h4">Lanzamiento</th>
+          <th class="h4">Duración(h)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of cursos">
+          <td>
+            <dd>{{c.id}}</dd>
+          </td>
+          <td>
+            <dd (click)="onSelected(c)">{{c.title}}</dd>
+          </td>
+          <td>
+            <dd>{{c.platform}}</dd>
+          </td>
+          <td>
+            <dd>{{c.launch_year}}</dd>
+          </td>
+          <td>
+            <dd>{{c.duration_hours}}</dd>
+          </td>
+      </tr>
+      </tbody>
+    </table>
+    <div *ngIf="selected">
+      <app-curso-detail [cursoDetail]="selectedCurso"></app-curso-detail>
+    </div>

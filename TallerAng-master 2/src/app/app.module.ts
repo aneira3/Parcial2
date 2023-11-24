@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { CursosModule } from './cursos/cursos.module';
 
 
 @NgModule({
@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CursosModule,
     HttpClientModule
   ],
   providers: [],
