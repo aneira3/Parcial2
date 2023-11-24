@@ -10,10 +10,12 @@ import { Curso } from './curso';
 export class CursosComponent implements OnInit {
    selectedCurso!: Curso;
     selected = false;
+    
 
   constructor(private cursoService: CursosService) { }
 
   cursos: Array<Curso> = [];
+  result: String = "";
 
   getCursos() {
     this.cursoService.getCursos().subscribe(courses => {
@@ -28,6 +30,17 @@ export class CursosComponent implements OnInit {
   onSelected(curso: Curso): void {
     this.selected = true;
     this.selectedCurso = curso;
+  }
+
+  getText()
+  {
+    var resultado = "Los cursos ";
+    for (let a in this.cursos)
+    {
+      if(true){resultado + 1}
+    }
+
+    this.result = resultado + " ofrecen certificado.";
   }
  
 

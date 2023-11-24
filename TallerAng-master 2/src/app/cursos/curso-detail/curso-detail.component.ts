@@ -15,4 +15,10 @@ export class CursoDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  getCondicional()
+  {
+    if(this.cursoDetail.offers_certificate){return "Si ofrece certificado"}
+    else{return "No ofrece certificado"}
+  }
+
 }
