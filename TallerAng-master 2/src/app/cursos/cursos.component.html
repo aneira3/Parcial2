@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="col-6">
+  <div class="col-4" id="contenedor">
     <table class="table">
       <thead>
         <tr>
@@ -13,10 +13,10 @@
       <tbody>
         <tr *ngFor="let c of cursos">
           <td>
-            <dd (click)="onSelected(c)">{{c.id}}</dd>
+            <dd  (click)="onSelected(c)">{{c.id}}</dd>
           </td>
           <td>
-            <dd (click)="onSelected(c)">{{c.title}}</dd>
+            <dd id="th1" (click)="onSelected(c)">{{c.title}}</dd>
           </td>
           <td>
             <dd (click)="onSelected(c)">{{c.platform}}</dd>
@@ -29,8 +29,15 @@
           </td>
       </tr>
       </tbody>
-      <h6>Los cursos 1,3,5 y 6 ofrecen certificado.</h6>
+      
     </table>
-    <div *ngIf="selected">
+   
+     <div *ngIf="selected">
       <app-curso-detail [cursoDetail]="selectedCurso"></app-curso-detail>
+  
+</div>
     </div>
+  <span>{{getText()}}</span>
+  </div>
+ 
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CursosService } from './cursos.service';
 import { Curso } from './curso';
+import { serializeNodes } from '@angular/compiler/src/i18n/digest';
 
 @Component({
   selector: 'app-cursos',
@@ -15,7 +16,6 @@ export class CursosComponent implements OnInit {
   constructor(private cursoService: CursosService) { }
 
   cursos: Array<Curso> = [];
-  result: String = "";
 
   getCursos() {
     this.cursoService.getCursos().subscribe(courses => {
@@ -34,13 +34,21 @@ export class CursosComponent implements OnInit {
 
   getText()
   {
+    var contador = 0;
     var resultado = "Los cursos ";
-    for (let a in this.cursos)
-    {
-      if(true){resultado + 1}
+    for (const curso of this.cursos) 
+    { contador +=1;
+      if(curso.offers_certificate)
+      { if (contador != this.cursos.length){
+        resultado += curso.id
+        resultado += ", "}
+        else{resultado += " y "
+      resultado += curso.id }
+        }
+      
     }
 
-    this.result = resultado + " ofrecen certificado.";
+    return resultado + " ofrecen certificado.";
   }
  
 
